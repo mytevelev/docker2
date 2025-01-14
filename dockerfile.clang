@@ -1,0 +1,7 @@
+FROM ubuntu:latest
+RUN apt-get update
+RUN apt-get install -y clang
+WORKDIR /root/test/
+COPY main.cpp .
+RUN clang++ -pthread main.cpp -o test_clang
+CMD ["./test_clang"]

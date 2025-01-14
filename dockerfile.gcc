@@ -1,0 +1,7 @@
+FROM ubuntu:latest
+RUN apt-get update
+RUN apt-get install -y g++
+WORKDIR /root/test/
+COPY main.cpp .
+RUN g++ -pthread main.cpp -o test_gcc
+CMD ["./test_gcc"]
